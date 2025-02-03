@@ -1,36 +1,167 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Airbnb Project
+## Table of Contents
+* Overview
+  Technologies Used
+* Features
+* Installation
+ . Backend Setup (Flask)
+ . Frontend Setup (Next.js)
+* API Endpoints
+. *Authentication
+. *Properties
+. *Bookings
+. *Wishlist
+. *Reviews
+* Project Structure
+* Contributors
+* License
+## Overview
+This is a full-stack *Airbnb-like* application that allows users to list properties, make bookings, write reviews, and manage their wishlist. The backend is built with *Flask*, handling authentication, database management, and business logic, while the frontend is built with Next.js, providing a modern and responsive UI.
 
-## Getting Started
-
-First, run the development server:
+### Technologies Used
+*Backend (Flask)
+*Flask: Micro web framework for Python.
+*Flask-RESTful: Extension for creating REST APIs.
+*Flask-SQLAlchemy: SQLAlchemy integration for Flask.
+*Flask-Migrate: Database migration tool for Flask-SQLAlchemy.
+*Flask-JWT-Extended: Authentication using JSON Web Tokens.
+*Flask-CORS: Cross-Origin Resource Sharing support.
+*SQLite/PostgreSQL: Relational databases used for persistence.
+### Frontend (Next.js)
+* Next.js: React-based framework for building server-side rendered applications.
+* Tailwind CSS: Utility-first CSS framework for styling.
+* Axios: Promise-based HTTP client for making API requests.
+* React Hook Form: Library for handling form validation and submission.
+* React Query: Data fetching, caching, and synchronization.
+Features
+* User Authentication: Users can sign up, log in, and manage their profiles.
+* Property Listings: Hosts can create, update, and delete property listings.
+* Booking System: Users can book properties and manage reservations.
+* Wishlist: Users can add properties to their wishlist for future reference.
+* Reviews & Ratings: Guests can leave reviews and ratings for properties.
+* Secure Payments: Integration for handling payments (e.g., Stripe or PayPal).
+#### Installation
+Backend Setup (Flask)
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Copy
+Edit
+git clone https://github.com/yourusername/airbnb-project.git
+cd airbnb-project/server
+Create and activate a virtual environment:
+```
+```bash
+Copy
+Edit
+python -m venv venv
+source venv/bin/activate  # Mac/Linux
+venv\Scripts\activate  # Windows
+Install dependencies:
+```
+```bash
+Copy
+Edit
+pip install -r requirements.txt
+Set up the database:
+```
+```bash
+Copy
+Edit
+flask db init
+flask db migrate -m "Initial migration."
+flask db upgrade
+Seed the database (if applicable):
+```
+```bash
+Copy
+Edit
+python seed.py
+Run the Flask server:
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+Copy
+Edit
+flask run
+Frontend Setup (Next.js)
+Navigate to the client directory:
+```
+```bash
+Copy
+Edit
+cd ../client
+Install dependencies:
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+Copy
+Edit
+npm install
+Run the Next.js development server:
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+Copy
+Edit
+npm run dev
+Open the application in your browser:
+```
+```bash
+Copy
+Edit
+http://localhost:3000
+```
+### API Endpoints
+#### Authentication
+* POST /register: Register a new user.
+* POST /login: Log in a user.
+* GET /user: Get logged-in user details.
+#### Properties
+* GET /properties: Fetch all properties.
+* POST /properties: Create a new property.
+* GET /properties/:id: Get a single property by ID.
+* PUT /properties/:id: Update a property.
+* DELETE /properties/:id: Delete a property.
+#### Bookings
+* POST /bookings: Create a booking.
+* GET /bookings: Get user bookings.
+* Wishlist
+* POST /wishlist: Add a property to wishlist.
+* GET /wishlist: Get wishlist items.
+* Reviews
+* POST /reviews: Add a review for a property.
+* GET /reviews/:property_id: Get reviews for a property.
 
-## Learn More
+####  Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```lua
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+/airbnb-project
+│── client/ (Next.js Frontend)
+│   ├── public/
+│   ├── src/
+│   ├── package.json
+│   ├── next.config.js
+│
+│── server/ (Flask Backend)
+│   ├── app.py
+│   ├── config.py
+│   ├── models.py
+│   ├── routes/
+│   ├── migrations/
+│   ├── seed.py
+│   ├── requirements.txt
+│
+│── README.md
+│── .gitignore
+│── Pipfile
+```
+#### Contributors
+Your Name - GitHub Profile
 
-## Deploy on Vercel
+Feel free to contribute by submitting issues or pull requests!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### License
+This project is licensed under the MIT License - see the LICENSE file for details.
